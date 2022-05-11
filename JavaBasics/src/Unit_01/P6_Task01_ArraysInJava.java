@@ -57,10 +57,10 @@ public class P6_Task01_ArraysInJava {
 		System.out.println(array5.toString());
 		
 		//ArrayIndexOutOfBoundsException
-		int arr[] = { 50, 60, 70, 80 };
-		for(int i = 0; i<=arr.length; i++) {
-			System.out.println(arr[i]);
-		}
+//		int arr[] = { 50, 60, 70, 80 };
+//		for(int i = 0; i<=arr.length; i++) {
+//			System.out.println(arr[i]);
+//		}
 		
 		//Multidimensional Array in Java
 		int[][] arr6 = new int[3][3];//3 row and 3 column

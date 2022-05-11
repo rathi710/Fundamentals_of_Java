@@ -8,6 +8,8 @@ public class P11_Task01_AccessProtectionInJava {
 		ChildClass obj = new ChildClass();
 		obj.showData();
 		obj.accessData();
+		AnotherClass obj2 = new AnotherClass();
+		obj2.display();
 	}
 }
 

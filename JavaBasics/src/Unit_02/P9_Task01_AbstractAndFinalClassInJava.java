@@ -16,7 +16,7 @@ package Unit_02;
  *  The main purpose of using a class being declared as final is to prevent the class from being used.
  *  -If a class is marked as final then no class can inherit any feature from final class.
  *  -you cannot extend a final class.If you try it gives you a compile time error.
- */
+ */ 
 
 abstract class Bike
 {
@@ -45,6 +45,8 @@ public class P9_Task01_AbstractAndFinalClassInJava {
 	{
 		Bike obj = new Honda4();
 		obj.display();
+		Super obj2 = new Super();
+	    obj2.display();
 	}
 }
 final class Super
