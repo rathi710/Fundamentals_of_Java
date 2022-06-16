@@ -1,6 +1,14 @@
 package Unit_03;
 import java.util.*;
-public class ExceptionHandlingInJava {
+
+
+//Throw keyword is used when you want to create your own exception
+/*
+ * Exceptions can be handled while errors can't be handled
+ * the code which can generate exception is put into try block which is then catch after
+ * we can use numerous catch block but the exception can be caught only by correct catch block
+ */
+public class P14_ErrorsAndExceptionsInJava {
 
 	public static void main(String[] args) {
 		A obj = new A();
@@ -16,6 +24,8 @@ public class ExceptionHandlingInJava {
 	}
 
 }
+//the finally keyword lets you execute code,after try.....catch regardless of the results
+	//agar catch na bhi ho tbhi bhi finally chalega chahe exception terminate ho jaye
 
 class A{
 	
@@ -38,78 +48,74 @@ class A{
 		System.out.println("done");
 	}
 	
-	void stackOverflowError(int a) {       //error:no handling of this 
-		try {
-			if(a>0) {
-				a++;
-				stackOverflowError(a);
+	       
+		//error:no handling of this 
+		void stackoverflowException()
+		{
+			try {
+				if(a>0) {
+					a++;
+					stackoverflowException();
+			}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
+			System.out.println("done");
+		}
+		
+		void IndexOutofBound()
+		{
+			try {
+				int a[]= {1,2,3};
+				System.out.println(a[4]);
+				
+			}
+			catch(Exception e){
+				System.out.println(e.getMessage());
 			}
 		}
-		catch(Exception e) {
+		void nullPointerException()
+		{
+			try {
+				String s=new String();
+				s=null;
+				System.out.println(s.length());
+			}
+			catch(Exception e) {
 				System.out.println(e.getMessage());
-		}   
-	}
-	
-	void nullPointerException() 
-	{
-		try {
-			String s=new String();
-			s=null;
-			System.out.println(s.length());
+			}
 		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
+		void useofThrow(int age)throws Exception//LAzy Exception does not want to use its own try /catch
+		{
+			if(age<18)
+				throw new Exception();
+			else
+				System.out.println("You are allowed to Vote");
 		}
-	}
-	
-	void IndexOutofBound() {
-		try {
-			int a[]= {1,2,3};
-			System.out.println(a[4]);
+		void useofThrows_and_finally() {
+			try {
+				useofThrow(17);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			finally {
+				System.out.println("The try block is finished");
+			}
 		}
-		catch(Exception e) {
-			System.out.println(e.getMessage());
+		void voting(int age) throws ManualException {
+
+			if (age < 17) {
+				throw new ManualException();
+			}
+
+			
+			System.out.println("you can vote");
+
 		}
-	}
-	
-	void inputMismatchException()
-	 {
-	  Scanner s=new Scanner(System.in);
-	  
-	  try {
-		  int a=s.nextInt();
-		  System.out.println(a);
-		  s.close();
-	  }
-	  
-	  catch(InputMismatchException e){
-		  System.out.println(e.getMessage());
-	  }
-	  
-	  System.out.println("done");
-	 }
-	
-	void useofThrow(int age) throws Exception //LAzy Exception(wont use its own try/catch
-	{
-	  if(age<18)
-		  throw new Exception();
-	  else
-		  System.out.println("You are allowed to Vote");
-	}
-	
-	void useofThrows_and_finally() {
-		 try {
-			 useofThrow(17);
-		 }
-		 catch(Exception e){
-			 e.printStackTrace();
-	  }
-		 
-		 finally {
-			 System.out.println("The try block is finished");
-		 }
-    }
-	
+		
 	void checkedAndUncheckedException() {
 
 		  /*
